@@ -2,9 +2,9 @@
 import numpy as np
 import pandas as pd
 
-from glucotwin.data.meals import absorption_rate
-from glucotwin.twin.engine import future_inputs, meal_habits, what_if
-from glucotwin.twin.physiology import meal_appearance, params_from_clinical, simulate
+from thalitwin.data.meals import absorption_rate
+from thalitwin.twin.engine import future_inputs, meal_habits, what_if
+from thalitwin.twin.physiology import meal_appearance, params_from_clinical, simulate
 
 
 def _p():

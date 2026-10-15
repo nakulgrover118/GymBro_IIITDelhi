@@ -1,15 +1,18 @@
-"""About GlucoTwin: architecture, data, privacy and limitations."""
+"""About ThaliTwin: architecture, data, privacy and limitations."""
 import streamlit as st
 
 from common import ROOT, setup
 
 setup("About")
-st.title("ℹ️ About GlucoTwin")
+st.title("ℹ️ About ThaliTwin")
 st.markdown("""
-**GlucoTwin** is a proof-of-concept digital twin for people with **type-2 diabetes** in India. It fuses a patient's
+**ThaliTwin** is a proof-of-concept digital twin for people with **type-2 diabetes** in India. It fuses a patient's
 **electronic health record** (demographics, diagnoses, labs, medicines, genetic markers) with **real-time wearable
 data** (continuous glucose monitor, steps, heart rate, HRV, sleep) and **predicts glucose spikes above 180 mg/dL up
 to 2 hours in advance**, explains why, and lets a doctor test "what if" changes on the virtual patient.
+
+*Why the name?* A *thali* is the everyday Indian plate, where most post-meal spikes begin. ThaliTwin knows what is on
+the patient's plate and simulates what it will do to their glucose.
 
 **Team Gym Bro · IIIT Delhi** — Digital Twin Challenge 2026, Happiest Health Summit, Bengaluru.
 """)

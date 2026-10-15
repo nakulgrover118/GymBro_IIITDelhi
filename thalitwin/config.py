@@ -1,4 +1,4 @@
-"""Project-wide paths and clinical constants for GlucoTwin."""
+"""Project-wide paths and clinical constants for ThaliTwin."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]

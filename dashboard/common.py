@@ -1,4 +1,4 @@
-"""Shared state, styling and helpers for the GlucoTwin doctor dashboard."""
+"""Shared state, styling and helpers for the ThaliTwin doctor dashboard."""
 from __future__ import annotations
 
 import sys
@@ -11,8 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from glucotwin import config as C  # noqa: E402
-from glucotwin.inference import GlucoTwinService  # noqa: E402
+from thalitwin import config as C  # noqa: E402
+from thalitwin.inference import ThaliTwinService  # noqa: E402
 
 TEAL, AMBER, RED, BLUE, GREY = "#0f766e", "#d97706", "#dc2626", "#2563eb", "#64748b"
 STATUS_COLOR = {"alert": AMBER, "high now": RED, "low now": RED, "stable": TEAL}
@@ -35,8 +35,8 @@ CSS = """
 
 
 @st.cache_resource(show_spinner="Loading digital twins and models...")
-def service() -> GlucoTwinService:
-    return GlucoTwinService()
+def service() -> ThaliTwinService:
+    return ThaliTwinService()
 
 
 def setup(title: str):

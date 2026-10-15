@@ -2,8 +2,8 @@
 import numpy as np
 import pandas as pd
 
-from glucotwin.features import patient_features
-from glucotwin.models.metrics import clarke_zones, event_report, pick_threshold
+from thalitwin.features import patient_features
+from thalitwin.models.metrics import clarke_zones, event_report, pick_threshold
 
 
 def _grid(vals, step=5):

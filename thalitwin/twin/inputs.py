@@ -16,9 +16,9 @@ from dataclasses import dataclass, field
 import numpy as np
 import pandas as pd
 
-from glucotwin.data.meals import MEAL_BY_KEY, absorption_rate
-from glucotwin.data.simulator import STEPS_PER_MIN_AT_FULL, sleep_si_multiplier
-from glucotwin.twin.physiology import (KA_PREMIX, PhysioParams, activity_filter, exercise_si_boost,
+from thalitwin.data.meals import MEAL_BY_KEY, absorption_rate
+from thalitwin.data.simulator import STEPS_PER_MIN_AT_FULL, sleep_si_multiplier
+from thalitwin.twin.physiology import (KA_PREMIX, PhysioParams, activity_filter, exercise_si_boost,
                                        insulin_appearance, meal_appearance, params_from_clinical)
 
 

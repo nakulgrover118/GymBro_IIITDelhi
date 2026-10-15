@@ -7,8 +7,8 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from common import AMBER, BLUE, GREY, TEAL, card, setup
-from glucotwin import config as C
-from glucotwin.models.metrics import clarke_zones
+from thalitwin import config as C
+from thalitwin.models.metrics import clarke_zones
 
 setup("Performance")
 st.title("📊 Model performance")
@@ -31,7 +31,7 @@ for tab, cohort in zip(tabs, avail):
         ev = pd.read_csv(R / f"{cohort}_events.csv")
         streams = pd.read_csv(R / f"{cohort}_shap_streams.csv")
         feats = pd.read_csv(R / f"{cohort}_shap_features.csv")
-        final = "LightGBM: GlucoTwin (fusion + digital twin)"
+        final = "LightGBM: ThaliTwin (fusion + digital twin)"
         fc, fe = clf[clf.model == final].iloc[0], ev[ev.model == final].iloc[0]
         fr = reg[(reg.model == final)].set_index("horizon")
         p = res["patients"]
@@ -60,7 +60,7 @@ for tab, cohort in zip(tabs, avail):
             cc = clf.copy()
             cc["short"] = cc.model.str.replace("LightGBM: ", "")
             fig = go.Figure(go.Bar(x=cc.auroc, y=cc.short, orientation="h", text=cc.auroc.round(3),
-                                   marker_color=[TEAL if "GlucoTwin" in m else BLUE if "LightGBM" in m else GREY
+                                   marker_color=[TEAL if "ThaliTwin" in m else BLUE if "LightGBM" in m else GREY
                                                  for m in cc.model]))
             fig.update_layout(height=380, margin=dict(l=10, r=10, t=10, b=10), xaxis=dict(range=[0.5, 1.0], title="AUROC"),
                               yaxis=dict(autorange="reversed"))
@@ -109,7 +109,7 @@ for tab, cohort in zip(tabs, avail):
             fig = go.Figure()
             fig.add_trace(go.Scatter(x=tr.false_alerts_per_day, y=tr.event_recall * 100, mode="lines+markers+text",
                                      text=[f"{v:.0f} min" for v in tr.median_lead_min], textposition="top left",
-                                     line=dict(color=TEAL), name="GlucoTwin"))
+                                     line=dict(color=TEAL), name="ThaliTwin"))
             d0 = tr.iloc[(tr.threshold_offset.abs()).argmin()]
             fig.add_trace(go.Scatter(x=[d0.false_alerts_per_day], y=[d0.event_recall * 100], mode="markers",
                                      marker=dict(size=14, color=AMBER, symbol="star"), name="default threshold"))

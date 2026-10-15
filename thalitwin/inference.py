@@ -14,17 +14,17 @@ import lightgbm as lgb
 import numpy as np
 import pandas as pd
 
-from glucotwin import config as C
-from glucotwin.data.meals import MEAL_BY_KEY, absorption_rate
-from glucotwin.data.simulator import START_DATE, sleep_si_multiplier
-from glucotwin.models.explain import reasons
-from glucotwin.twin.engine import future_inputs, meal_habits, run_observer, what_if
-from glucotwin.twin.inputs import build_observed, stack_inputs
+from thalitwin import config as C
+from thalitwin.data.meals import MEAL_BY_KEY, absorption_rate
+from thalitwin.data.simulator import START_DATE, sleep_si_multiplier
+from thalitwin.models.explain import reasons
+from thalitwin.twin.engine import future_inputs, meal_habits, run_observer, what_if
+from thalitwin.twin.inputs import build_observed, stack_inputs
 
 DASH_DIR = C.ARTIFACTS_DIR / "dashboard"
 
 
-class GlucoTwinService:
+class ThaliTwinService:
     def __init__(self, cohort: str = "synthetic"):
         mdir = C.MODELS_DIR / cohort
         self.meta = json.loads((mdir / "meta.json").read_text())
@@ -164,7 +164,7 @@ class GlucoTwinService:
     def simulate_scenarios(self, pid: str, minute: int, scenarios: list[dict], H: int = 360,
                            include_routine: bool = True) -> np.ndarray:
         """Each scenario dict uses engine.what_if keys; offsets are minutes from now."""
-        from glucotwin.twin.engine import apply_z
+        from thalitwin.twin.engine import apply_z
         obs, arr, prior, Z, (G, X, I, D) = self._twin(pid)
         s = int(minute)
         d = min(s // 1440, Z.shape[0] - 1)

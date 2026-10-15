@@ -13,7 +13,7 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch  # noqa: E402
 
-from glucotwin import config as C  # noqa: E402
+from thalitwin import config as C  # noqa: E402
 
 TEAL, AMBER, RED, BLUE, GREY, INK, PURPLE = "#0f766e", "#d97706", "#dc2626", "#2563eb", "#64748b", "#0f172a", "#7c3aed"
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.spines.top": False,
@@ -38,7 +38,7 @@ def architecture():
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis("off")
-    ax.text(0.5, 0.965, "GlucoTwin – Digital Twin for Type-2 Diabetes: system architecture", ha="center",
+    ax.text(0.5, 0.965, "ThaliTwin – Digital Twin for Type-2 Diabetes: system architecture", ha="center",
             fontsize=17, fontweight="bold", color=INK)
     ax.text(0.5, 0.932, "Team Gym Bro · IIIT Delhi · predicts glucose spikes > 180 mg/dL up to 2 h ahead by fusing EHR + wearable streams",
             ha="center", fontsize=10.5, color=GREY)
@@ -134,7 +134,7 @@ def results_figures(cohort, label):
     clf = r["classification"].copy()
     clf["short"] = clf.model.str.replace("LightGBM: ", "").str.replace("Deep learning: ", "")
     fig, ax = plt.subplots(figsize=(8.5, 4.4))
-    cols = [TEAL if "GlucoTwin" in m else BLUE if "LightGBM" in m else PURPLE if "GRU" in m else GREY for m in clf.model]
+    cols = [TEAL if "ThaliTwin" in m else BLUE if "LightGBM" in m else PURPLE if "GRU" in m else GREY for m in clf.model]
     ax.barh(clf.short, clf.auroc, color=cols)
     for i, v in enumerate(clf.auroc):
         ax.text(v + 0.003, i, f"{v:.3f}", va="center", fontsize=9)
@@ -173,7 +173,7 @@ def results_figures(cohort, label):
     plt.close(fig)
 
     pr = pd.read_parquet(C.RESULTS_DIR / f"{cohort}_test_predictions.parquet")
-    from glucotwin.models.metrics import clarke_zones
+    from thalitwin.models.metrics import clarke_zones
     d = pr[["y_g60", "pred_g60"]].dropna().sample(min(8000, len(pr)), random_state=0)
     z = clarke_zones(d.y_g60.values, d.pred_g60.values)
     fig, ax = plt.subplots(figsize=(5.2, 5))
@@ -184,7 +184,7 @@ def results_figures(cohort, label):
     ax.set_xlim(40, 400)
     ax.set_ylim(40, 400)
     ax.set_xlabel("actual CGM in 60 min (mg/dL)")
-    ax.set_ylabel("GlucoTwin forecast (mg/dL)")
+    ax.set_ylabel("ThaliTwin forecast (mg/dL)")
     ax.set_title(f"Clarke error grid, 60-min · {label}")
     ax.legend(frameon=False, markerscale=4, loc="upper left")
     fig.tight_layout()
@@ -237,7 +237,7 @@ def example_patient():
     a1.axhspan(70, 180, color=TEAL, alpha=0.07)
     a1.axhline(180, color=AMBER, ls=":", lw=1)
     a1.plot(hrs(g.minute), g.cgm_now, color=BLUE, lw=2, label="CGM")
-    a1.plot(hrs(g.minute + 60), g.pred_g60, color=AMBER, lw=1.3, alpha=0.9, label="GlucoTwin forecast made 60 min earlier")
+    a1.plot(hrs(g.minute + 60), g.pred_g60, color=AMBER, lw=1.3, alpha=0.9, label="ThaliTwin forecast made 60 min earlier")
     for r in m.itertuples():
         a1.annotate(f"{r.meal_name}\n{r.carbs_true:.0f} g", (hrs(r.minute), 60), fontsize=7.5, ha="center", color=TEAL)
         a1.axvline(hrs(r.minute), color=TEAL, alpha=0.25)
@@ -336,10 +336,10 @@ def tradeoff_figure():
 
 def whatif_example():
     try:
-        from glucotwin.inference import GlucoTwinService, meal_scenario
+        from thalitwin.inference import ThaliTwinService, meal_scenario
     except Exception:
         return None
-    svc = GlucoTwinService()
+    svc = ThaliTwinService()
     pid = svc.patient_ids[0]
     lo, hi = svc.time_range(pid)
     minute = (lo // 1440 + 2) * 1440 + 13 * 60          # day 5, 13:00 - just before lunch
@@ -383,7 +383,7 @@ def whatif_example():
 
 def summary(whatif):
     out = {}
-    final = "LightGBM: GlucoTwin (fusion + digital twin)"
+    final = "LightGBM: ThaliTwin (fusion + digital twin)"
     for cohort in ("synthetic", "shanghai"):
         R = C.RESULTS_DIR
         if not (R / f"{cohort}_results.json").exists():

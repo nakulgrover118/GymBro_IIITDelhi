@@ -1,4 +1,4 @@
-// Builds docs/GlucoTwin_Presentation.pptx from artifacts/results/summary.json + docs/figures/*.png
+// Builds docs/ThaliTwin_Presentation.pptx from artifacts/results/summary.json + docs/figures/*.png
 // Usage:  cd docs/deck && npm install && node build_deck.js
 const fs = require("fs");
 const path = require("path");
@@ -12,7 +12,7 @@ const ROOT = path.resolve(__dirname, "..", "..");
 const FIG = path.join(ROOT, "docs", "figures");
 const S_ALL = JSON.parse(fs.readFileSync(path.join(ROOT, "artifacts", "results", "summary.json"), "utf8"));
 const S = S_ALL.synthetic, R = S_ALL.shanghai, W = S_ALL.whatif, TL = S_ALL.twin_learning, EX = S_ALL.example_alert;
-const OUT = path.join(ROOT, "docs", "GlucoTwin_Presentation.pptx");
+const OUT = path.join(ROOT, "docs", "ThaliTwin_Presentation.pptx");
 
 // ---------------------------------------------------------------- palette & type
 const INK = "0F172A", DARK = "0B2E33", TEAL = "0F766E", MINT = "CCEDE8", TINT = "F0F7F6", AMBER = "D97706",
@@ -22,7 +22,7 @@ const pct = (x, d = 0) => `${(x * 100).toFixed(d)}%`;
 const f1 = (x) => Number(x).toFixed(1);
 const SHORT = (m) => m.replace("Trend rule (glucose + 2x 30-min change)", "Trend rule")
   .replace("Digital twin alone (simulated peak)", "Twin alone (physiology)")
-  .replace("LightGBM: GlucoTwin (fusion + digital twin)", "GlucoTwin: all streams + twin")
+  .replace("LightGBM: ThaliTwin (fusion + digital twin)", "ThaliTwin: all streams + twin")
   .replace(/LightGBM: Fusion \(.*\)/, "ML: all streams, no twin")
   .replace("LightGBM: CGM + wearables & logs", "ML: CGM + wearables & logs")
   .replace("LightGBM: CGM + meal & insulin logs", "ML: CGM + meal/insulin logs")
@@ -47,7 +47,7 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
   pres.layout = "LAYOUT_WIDE"; // 13.333 x 7.5
   pres.author = "Team Gym Bro (IIIT Delhi)";
   pres.company = "IIIT Delhi";
-  pres.title = "GlucoTwin - Digital Twin for Type-2 Diabetes";
+  pres.title = "ThaliTwin - Digital Twin for Type-2 Diabetes";
   pres.subject = "Digital Twin Challenge 2026";
   pres.theme = { headFontFace: HEAD, bodyFontFace: BODY };
 
@@ -65,7 +65,7 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
     margin: [0.5, 0.6, 0.6, 0.6],
     objects: [
       { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 12.1, h: 0.85, fontFace: HEAD, fontSize: 34, bold: true, color: INK, valign: "middle", align: "left", margin: 0 }, text: "" } },
-      { text: { text: "GlucoTwin  ·  Team Gym Bro  ·  IIIT Delhi  ·  Digital Twin Challenge 2026", options: { x: 0.6, y: 7.05, w: 9, h: 0.3, fontFace: BODY, fontSize: 10, color: MUTED, margin: 0 } } },
+      { text: { text: "ThaliTwin  ·  Team Gym Bro  ·  IIIT Delhi  ·  Digital Twin Challenge 2026", options: { x: 0.6, y: 7.05, w: 9, h: 0.3, fontFace: BODY, fontSize: 10, color: MUTED, margin: 0 } } },
     ],
     slideNumber: { x: 12.25, y: 7.05, w: 0.5, h: 0.3, fontFace: BODY, fontSize: 10, color: MUTED, align: "right" },
   });
@@ -97,7 +97,7 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
   // ================================================================ 1. Title
   pres.addSection({ title: "Introduction" });
   let s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Introduction" });
-  s.addText("GlucoTwin", { placeholder: "title" });
+  s.addText("ThaliTwin", { placeholder: "title" });
   s.addText("A digital twin for type-2 diabetes that sees glucose spikes coming up to 2 hours ahead, explains why, and lets doctors test what would prevent them", { placeholder: "body" });
   s.addText([{ text: "Team Gym Bro  ·  IIIT Delhi", options: { bold: true, breakLine: true } }, { text: "Digital Twin Challenge 2026  ·  Happiest Health Summit, Bengaluru" }],
     { x: 0.8, y: 5.6, w: 7.5, h: 0.8, fontFace: BODY, fontSize: 15, color: WHITE, margin: 0, isTextBox: true, objectName: "team" });
@@ -108,7 +108,7 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
     s.addText(v, { x: 9.25, y: y + 0.1, w: 3.1, h: 0.7, fontFace: HEAD, fontSize: 32, bold: true, color: AMBER, margin: 0, isTextBox: true, objectName: `title-tile-v-${i}` });
     s.addText(l, { x: 9.25, y: y + 0.78, w: 3.2, h: 0.5, fontFace: BODY, fontSize: 12, color: MINT, margin: 0, isTextBox: true, objectName: `title-tile-l-${i}` });
   });
-  s.addNotes("Hi, we are Team Gym Bro from IIIT Delhi. GlucoTwin is a proof-of-concept digital twin for people with type-2 diabetes. It fuses a patient's health record with live wearable data, predicts glucose spikes up to two hours before they happen, explains the reasons, and lets a doctor test alternatives on the virtual patient.");
+  s.addNotes("Hi, we are Team Gym Bro from IIIT Delhi. ThaliTwin is a proof-of-concept digital twin for people with type-2 diabetes. It fuses a patient's health record with live wearable data, predicts glucose spikes up to two hours before they happen, explains the reasons, and lets a doctor test alternatives on the virtual patient. Why the name? A thali is the everyday Indian plate, where most post-meal spikes begin - ThaliTwin is a twin that knows what is on the patient's plate and simulates what it will do to their glucose.");
 
   // ================================================================ 2. Problem
   s = content("India's diabetes burden is daily, but care is quarterly", "Introduction");
@@ -221,19 +221,19 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
   stat(s, 3.65, 3.15, 2.85, `${f1(S.false_per_day)} / day`, `false alerts per patient-day (${f1(S.events_per_day)} real spikes / day)`, MUTED, "r4");
   const abl = S.ablation.filter(([m]) => !m.startsWith("Trend"));
   s.addChart(pres.charts.BAR, [{ name: "AUROC", labels: abl.map(([m]) => SHORT(m)), values: abl.map(([, a]) => +a.toFixed(3)) }],
-    { x: 6.75, y: 1.4, w: 5.95, h: 3.4, barDir: "bar", chartColors: abl.map(([m]) => m.includes("GlucoTwin") ? TEAL : m.includes("Deep") ? PURPLE : m.includes("Twin alone") ? AMBER : "94A3B8"), showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.000", valAxisMinVal: 0.8, valAxisMaxVal: 1.0, valAxisHidden: true, showLegend: false, showTitle: true, title: "Ablation (AUROC): every stream adds signal", catAxisOrientation: "maxMin", ...chartText, objectName: "ablation-chart" });
+    { x: 6.75, y: 1.4, w: 5.95, h: 3.4, barDir: "bar", chartColors: abl.map(([m]) => m.includes("ThaliTwin") ? TEAL : m.includes("Deep") ? PURPLE : m.includes("Twin alone") ? AMBER : "94A3B8"), showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.000", valAxisMinVal: 0.8, valAxisMaxVal: 1.0, valAxisHidden: true, showLegend: false, showTitle: true, title: "Ablation (AUROC): every stream adds signal", catAxisOrientation: "maxMin", ...chartText, objectName: "ablation-chart" });
   s.addText(`Synthetic Indian cohort: ${S.patients.test} held-out patients, ${S.rows.toLocaleString("en-US")} time points. Trend-rule baseline AUROC ${S.ablation.find(([m]) => m.startsWith("Trend"))[1].toFixed(3)}. Sensitivity ${pct(S.sensitivity)} at specificity ${pct(S.specificity)}.`,
     { x: 0.6, y: 4.95, w: 12.1, h: 0.5, fontFace: BODY, fontSize: 13, color: MUTED, margin: 0, isTextBox: true });
   card(s, 0.6, 5.55, 12.1, 1.25, TINT, "r-takeaway");
   s.addText([{ text: "Takeaway: ", options: { bold: true, color: TEAL } }, { text: "CGM alone is good, but adding wearables, logs and the twin's simulation lifts discrimination and cuts false alarms. The twin's simulated peak is the single most important feature." }],
     { x: 0.85, y: 5.6, w: 11.6, h: 1.15, fontFace: BODY, fontSize: 15, color: INK, margin: 0, valign: "middle", isTextBox: true });
-  s.addNotes(`On thirty held-out synthetic patients, GlucoTwin reaches an AUROC of ${S.auroc.toFixed(3)} for a new spike within two hours. It flags ${pct(S.event_recall)} of spike events at least fifteen minutes ahead, with a median warning of ${Math.round(S.median_lead)} minutes, at ${f1(S.false_per_day)} false alerts per patient-day. The ablation shows each data stream adding signal.`);
+  s.addNotes(`On thirty held-out synthetic patients, ThaliTwin reaches an AUROC of ${S.auroc.toFixed(3)} for a new spike within two hours. It flags ${pct(S.event_recall)} of spike events at least fifteen minutes ahead, with a median warning of ${Math.round(S.median_lead)} minutes, at ${f1(S.false_per_day)} false alerts per patient-day. The ablation shows each data stream adding signal.`);
 
   // ================================================================ 10. Results: forecasting
   s = content("Forecasts: about half the error of a naive guess", "Results");
   const fc = (X) => [{ name: "No-change forecast", labels: ["30 min", "60 min", "120 min"], values: [30, 60, 120].map((h) => +X.rmse_persistence[h].toFixed(1)) },
     { name: "Twin alone", labels: ["30 min", "60 min", "120 min"], values: [30, 60, 120].map((h) => +X.rmse_twin[h].toFixed(1)) },
-    { name: "GlucoTwin", labels: ["30 min", "60 min", "120 min"], values: [30, 60, 120].map((h) => +X.rmse[h].toFixed(1)) }];
+    { name: "ThaliTwin", labels: ["30 min", "60 min", "120 min"], values: [30, 60, 120].map((h) => +X.rmse[h].toFixed(1)) }];
   const fcOpts = (title, x) => ({ x, y: 1.4, w: 5.95, h: 3.9, barDir: "col", barGrouping: "clustered", chartColors: ["94A3B8", AMBER, TEAL], showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.0", valAxisHidden: true, showLegend: true, legendPos: "b", showTitle: true, title, ...chartText });
   s.addChart(pres.charts.BAR, fc(S), { ...fcOpts("RMSE (mg/dL) - synthetic Indian cohort", 0.6), objectName: "rmse-syn" });
   s.addChart(pres.charts.BAR, fc(R), { ...fcOpts("RMSE (mg/dL) - real ShanghaiT2DM, 5-fold CV", 6.75), objectName: "rmse-real" });
@@ -250,7 +250,7 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
   stat(s, 3.65, 3.15, 2.85, `${f1(R.clarkeA60)}%`, "Clarke zone A at 60 min", PURPLE, "rw4");
   const rab = R.ablation;
   s.addChart(pres.charts.BAR, [{ name: "AUROC", labels: rab.map(([m]) => SHORT(m)), values: rab.map(([, a]) => +a.toFixed(3)) }],
-    { x: 6.75, y: 1.4, w: 5.95, h: 3.4, barDir: "bar", chartColors: rab.map(([m]) => m.includes("GlucoTwin") ? PURPLE : m.startsWith("Trend") || m.includes("Twin alone") ? "CBD5E1" : "A78BFA"), showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.000", valAxisMinVal: 0.6, valAxisMaxVal: 1.0, valAxisHidden: true, showLegend: false, showTitle: true, title: "AUROC on real patients (out-of-fold)", catAxisOrientation: "maxMin", ...chartText, objectName: "real-ablation" });
+    { x: 6.75, y: 1.4, w: 5.95, h: 3.4, barDir: "bar", chartColors: rab.map(([m]) => m.includes("ThaliTwin") ? PURPLE : m.startsWith("Trend") || m.includes("Twin alone") ? "CBD5E1" : "A78BFA"), showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.000", valAxisMinVal: 0.6, valAxisMaxVal: 1.0, valAxisHidden: true, showLegend: false, showTitle: true, title: "AUROC on real patients (out-of-fold)", catAxisOrientation: "maxMin", ...chartText, objectName: "real-ablation" });
   card(s, 0.6, 4.95, 12.1, 1.85, TINT, "rw-honest");
   s.addText([{ text: "What the real data tells us (honestly): ", options: { bold: true, color: PURPLE } },
     { text: "the same pipeline transfers to real, noisy, hospital CGM and beats rule-based and no-change baselines by a wide margin. This dataset has no wearables and free-text diet logs, so EHR and twin features add little beyond CGM here - the fusion gains we see on synthetic data still need prospective validation with Indian patients wearing CGM + smartwatch." }],
@@ -335,9 +335,9 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
     s.addText(bullets(items, 14), { x: x + 0.25, y: 2.6, w: 3.4, h: 2.7, fontFace: BODY, margin: 0, valign: "top" });
   });
   card(s, 0.6, 5.65, 12.1, 1.1, "FFF7ED", "resp-banner");
-  s.addText([{ text: "0 identifiable records used. ", options: { bold: true, color: AMBER } }, { text: "200 synthetic patients + 100 published anonymised patients (CC BY 4.0). GlucoTwin is a research prototype, not a medical device." }],
+  s.addText([{ text: "0 identifiable records used. ", options: { bold: true, color: AMBER } }, { text: "200 synthetic patients + 100 published anonymised patients (CC BY 4.0). ThaliTwin is a research prototype, not a medical device." }],
     { x: 0.85, y: 5.7, w: 11.6, h: 1.0, fontFace: BODY, fontSize: 15, color: INK, margin: 0, valign: "middle", isTextBox: true });
-  s.addNotes("We used only synthetic or published anonymised data, with no identifiers, following the DPDP Act's principles. GlucoTwin is decision support with calibrated uncertainty and visible reasons. Its limitations: synthetic wearable effects come from the literature, the real dataset lacks wearables, and it needs prospective validation before any clinical use.");
+  s.addNotes("We used only synthetic or published anonymised data, with no identifiers, following the DPDP Act's principles. ThaliTwin is decision support with calibrated uncertainty and visible reasons. Its limitations: synthetic wearable effects come from the literature, the real dataset lacks wearables, and it needs prospective validation before any clinical use.");
 
   // ================================================================ 17. Roadmap
   s = content("From prototype to pilot", "Responsible AI & next steps");
@@ -362,7 +362,7 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
   // ================================================================ 18. Thanks
   s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Responsible AI & next steps" });
   s.addText("Thank you", { placeholder: "title" });
-  s.addText("GlucoTwin - Team Gym Bro, IIIT Delhi", { placeholder: "body" });
+  s.addText("ThaliTwin - Team Gym Bro, IIIT Delhi", { placeholder: "body" });
   s.addText([{ text: "Code, data card, model card and video: see the GitHub repository README", options: { breakLine: true } },
     { text: "Run it:  python run_all.py  ·  streamlit run dashboard/app.py", options: { breakLine: true } },
     { text: "MIT licence · ShanghaiT2DM data CC BY 4.0 (Zhao et al., Sci Data 2023)" }],
@@ -372,7 +372,7 @@ const shadow = () => ({ type: "outer", color: "94A3B8", blur: 6, offset: 1.5, an
   await pres.writeFile({ fileName: OUT });
   if (process.env.PPTX_THEME_SCRIPT && fs.existsSync(process.env.PPTX_THEME_SCRIPT)) {
     const { applyTheme } = require(process.env.PPTX_THEME_SCRIPT);
-    await applyTheme(OUT, { name: "GlucoTwin", headFontFace: HEAD, bodyFontFace: BODY, colors: { dk1: INK, lt1: WHITE, dk2: DARK, lt2: TINT, accent1: TEAL, accent2: AMBER, accent3: BLUE, accent4: RED, accent5: PURPLE, accent6: MUTED, hlink: TEAL, folHlink: PURPLE } });
+    await applyTheme(OUT, { name: "ThaliTwin", headFontFace: HEAD, bodyFontFace: BODY, colors: { dk1: INK, lt1: WHITE, dk2: DARK, lt2: TINT, accent1: TEAL, accent2: AMBER, accent3: BLUE, accent4: RED, accent5: PURPLE, accent6: MUTED, hlink: TEAL, folHlink: PURPLE } });
   }
   console.log("wrote", OUT);
 })();

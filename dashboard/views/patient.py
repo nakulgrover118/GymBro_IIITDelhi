@@ -7,8 +7,8 @@ from plotly.subplots import make_subplots
 
 from common import (AMBER, BLUE, GREY, RED, STATUS_COLOR, STATUS_LABEL, TEAL, card, chips, fmt, risk_txt,
                     select_patient, setup, trend_arrow)
-from glucotwin import config as C
-from glucotwin.data.ehr_generator import CONDITIONS, LOINC
+from thalitwin import config as C
+from thalitwin.data.ehr_generator import CONDITIONS, LOINC
 
 svc = setup("Patient twin")
 minute = st.session_state.minute
@@ -91,7 +91,7 @@ with left:
                              fillcolor="rgba(217,119,6,.18)", line=dict(width=0), name="80% interval", mode="lines",
                              hoverinfo="skip"), 1, 1)
     fig.add_trace(go.Scatter(x=ft, y=[g0] + [x["glucose"] for x in s["forecast"]], mode="lines+markers",
-                             name="GlucoTwin forecast", line=dict(color=AMBER, width=2.5)), 1, 1)
+                             name="ThaliTwin forecast", line=dict(color=AMBER, width=2.5)), 1, 1)
     tw_ = s["twin"]
     fig.add_trace(go.Scatter(x=ft, y=[g0, tw_["twin_g30"], tw_["twin_g60"], tw_["twin_g120"]], mode="lines",
                              name="Twin physiology only", line=dict(color=GREY, dash="dash")), 1, 1)

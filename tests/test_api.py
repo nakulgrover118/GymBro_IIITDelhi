@@ -1,7 +1,7 @@
 """API smoke tests (need trained models: run the pipeline first)."""
 import pytest
 
-from glucotwin import config as C
+from thalitwin import config as C
 
 pytestmark = pytest.mark.skipif(not (C.MODELS_DIR / "synthetic" / "meta.json").exists()
                                 or not (C.ARTIFACTS_DIR / "dashboard" / "features.parquet").exists(),

@@ -7,7 +7,7 @@ import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from glucotwin import config as C  # noqa: E402
+from thalitwin import config as C  # noqa: E402
 
 URL = "https://ndownloader.figshare.com/files/38259264"   # figshare article 20444397, file data.zip
 

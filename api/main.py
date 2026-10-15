@@ -1,4 +1,4 @@
-"""GlucoTwin REST API.
+"""ThaliTwin REST API.
 
 Run:  uvicorn api.main:app --reload       (docs at http://127.0.0.1:8000/docs)
 
@@ -16,19 +16,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from fastapi import FastAPI, HTTPException  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
 
-from glucotwin.data.meals import MEAL_BY_KEY, MEALS  # noqa: E402
-from glucotwin.inference import GlucoTwinService, meal_scenario, sleep_scale  # noqa: E402
+from thalitwin.data.meals import MEAL_BY_KEY, MEALS  # noqa: E402
+from thalitwin.inference import ThaliTwinService, meal_scenario, sleep_scale  # noqa: E402
 
-app = FastAPI(title="GlucoTwin API", version="1.0.0",
+app = FastAPI(title="ThaliTwin API", version="1.0.0",
               description="Digital twin for type-2 diabetes: 2-hour glucose spike prediction from EHR + wearables. "
                           "All patients are synthetic.")
-_svc: Optional[GlucoTwinService] = None
+_svc: Optional[ThaliTwinService] = None
 
 
-def svc() -> GlucoTwinService:
+def svc() -> ThaliTwinService:
     global _svc
     if _svc is None:
-        _svc = GlucoTwinService()
+        _svc = ThaliTwinService()
     return _svc
 
 

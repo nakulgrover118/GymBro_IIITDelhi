@@ -1,13 +1,13 @@
-# Data card: GlucoTwin
+# Data card: ThaliTwin
 
-GlucoTwin follows the challenge's sandbox rules. It uses **synthetic** data (for the full EHR + wearable fusion) and **anonymised open data** (for real-world validation). No identifiable patient data is collected, stored or needed.
+ThaliTwin follows the challenge's sandbox rules. It uses **synthetic** data (for the full EHR + wearable fusion) and **anonymised open data** (for real-world validation). No identifiable patient data is collected, stored or needed.
 
 ## 1. Synthetic Indian type-2 diabetes cohort (main development set)
 
 | | |
 |---|---|
 | Patients | 200 virtual adults with T2D, 14 days each |
-| Generator | `glucotwin/data/ehr_generator.py` (EHR) + `glucotwin/data/simulator.py` (daily life, physiology, sensors). Seed `2026`, fully reproducible |
+| Generator | `thalitwin/data/ehr_generator.py` (EHR) + `thalitwin/data/simulator.py` (daily life, physiology, sensors). Seed `2026`, fully reproducible |
 | Static stream (EHR) | Demographics, region, diet pattern, occupation; ICD-10 diagnoses; LOINC-coded labs (HbA1c, FPG, fasting insulin, lipids, creatinine/eGFR, UACR, ALT, BP, BMI, waist); 2-year quarterly lab history; medicines; genetic markers (TCF7L2 rs7903146, KCNQ1 rs2237892 risk-allele counts, polygenic risk z-score). Exported as CSV and as FHIR R4 bundles (`data/synthetic/fhir/`) |
 | Dynamic stream (wearables) | Every 5 min: CGM glucose, steps, heart rate, HRV (RMSSD), sleep stage (wake/light/deep/REM) |
 | App logs | Meals from a 35-dish Indian menu (carbs, GI), logged with ~80–95% adherence and ±18% carb-estimation error; medicine doses (taken/missed) |
@@ -30,11 +30,11 @@ GlucoTwin follows the challenge's sandbox rules. It uses **synthetic** data (for
 | Licence | CC BY 4.0 (attribution above) |
 | Content used | 109 CGM recordings (100 people with T2D), 15-min CGM for 3–14 days; free-text diet logs; insulin doses (s.c., pump bolus, i.v.); clinical summary (age, sex, BMI, HbA1c, fasting glucose/insulin, lipids, eGFR, comorbidities, drugs) |
 | Not available | Wearable steps/HR/HRV/sleep, genetics |
-| Processing | `glucotwin/data/shanghai.py`: timestamps rounded to a 15-min grid, carbs estimated from free text with a food-to-carbohydrate table, insulin types mapped to absorption speeds, units converted (HbA1c mmol/mol to %, pmol/L to µU/mL, mmol/L to mg/dL) |
+| Processing | `thalitwin/data/shanghai.py`: timestamps rounded to a 15-min grid, carbs estimated from free text with a food-to-carbohydrate table, insulin types mapped to absorption speeds, units converted (HbA1c mmol/mol to %, pmol/L to µU/mL, mmol/L to mg/dL) |
 | Splits | Person-level 70/15/15. Repeat recordings from the same person stay in one split |
 
 ## 3. Privacy and governance
 - No real identifiers anywhere. Synthetic names are random combinations of common Indian names, and every record carries a `synthetic` tag.
 - The ShanghaiT2DM data was anonymised by its publishers; we only use their numeric patient codes.
 - The design follows DPDP Act 2023 principles (purpose limitation, data minimisation, storage limitation). The API exposes model outputs, not raw data dumps.
-- **GlucoTwin is a research prototype, not a medical device.** It is decision support for clinicians and is not intended for dosing.
+- **ThaliTwin is a research prototype, not a medical device.** It is decision support for clinicians and is not intended for dosing.

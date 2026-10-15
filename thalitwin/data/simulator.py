@@ -22,8 +22,8 @@ from datetime import date, datetime, timedelta
 import numpy as np
 import pandas as pd
 
-from glucotwin.data.meals import MEAL_BY_KEY, absorption_rate, meals_for
-from glucotwin.twin.physiology import (KA_PREMIX, PhysioParams, activity_filter, dawn_profile, exercise_si_boost,
+from thalitwin.data.meals import MEAL_BY_KEY, absorption_rate, meals_for
+from thalitwin.twin.physiology import (KA_PREMIX, PhysioParams, activity_filter, dawn_profile, exercise_si_boost,
                                        insulin_appearance, meal_appearance, params_from_clinical, simulate)
 
 START_DATE = date(2026, 9, 1)

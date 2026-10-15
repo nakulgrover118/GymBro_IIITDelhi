@@ -17,7 +17,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from glucotwin.twin.physiology import F_BIO, TAU_EXERCISE, PhysioParams, activity_filter, dawn_profile, simulate
+from thalitwin.twin.physiology import F_BIO, TAU_EXERCISE, PhysioParams, activity_filter, dawn_profile, simulate
 
 CAL_KEYS = ("SI", "meal_gain", "Gb", "dawn_amp")
 PRIOR_SD = np.array([0.35, 0.20, 0.08, 0.50])     # log-scale prior spread around the EHR prior

@@ -6,7 +6,7 @@ import warnings
 import lightgbm as lgb
 import numpy as np
 
-from glucotwin.features import CGM_FEATURES, EHR_FEATURES, LOG_FEATURES, TWIN_FEATURES, WEAR_FEATURES
+from thalitwin.features import CGM_FEATURES, EHR_FEATURES, LOG_FEATURES, TWIN_FEATURES, WEAR_FEATURES
 
 BASE = dict(n_estimators=3000, learning_rate=0.04, num_leaves=63, min_child_samples=200, subsample=0.8,
             subsample_freq=1, colsample_bytree=0.7, reg_lambda=2.0, verbose=-1, n_jobs=-1)
@@ -16,7 +16,7 @@ FEATURE_SETS = {
     "CGM + EHR": [CGM_FEATURES, EHR_FEATURES],
     "CGM + wearables & logs": [CGM_FEATURES, LOG_FEATURES, WEAR_FEATURES],
     "Fusion (CGM + EHR + wearables & logs)": [CGM_FEATURES, EHR_FEATURES, LOG_FEATURES, WEAR_FEATURES],
-    "GlucoTwin (fusion + digital twin)": [CGM_FEATURES, EHR_FEATURES, LOG_FEATURES, WEAR_FEATURES, TWIN_FEATURES],
+    "ThaliTwin (fusion + digital twin)": [CGM_FEATURES, EHR_FEATURES, LOG_FEATURES, WEAR_FEATURES, TWIN_FEATURES],
 }
 STREAM_OF = {**{f: "CGM" for f in CGM_FEATURES}, **{f: "EHR" for f in EHR_FEATURES},
              **{f: "Meal & medicine logs" for f in LOG_FEATURES}, **{f: "Wearables" for f in WEAR_FEATURES},

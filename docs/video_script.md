@@ -1,6 +1,6 @@
-# Video script: GlucoTwin (target 22 minutes)
+# Video script: ThaliTwin (target 22 minutes)
 
-**Format:** screen recording. Present `docs/GlucoTwin_Presentation.pptx` (speaker notes are in the deck), then switch to the live dashboard and a terminal. Upload as an **unlisted YouTube video** and paste the link into the README.
+**Format:** screen recording. Present `docs/ThaliTwin_Presentation.pptx` (speaker notes are in the deck), then switch to the live dashboard and a terminal. Upload as an **unlisted YouTube video** and paste the link into the README.
 
 **Before recording**
 1. Run `streamlit run dashboard/app.py` and open http://localhost:8501. Set the sidebar clock to **day 5, 13:00**.
@@ -16,7 +16,7 @@ Every number below comes from `docs/results.md`. If you re-run the pipeline, re-
 
 | Time | Slide | Say (key points) |
 |---|---|---|
-| 0:00 | 1 Title | Introduce Team Gym Bro (IIIT Delhi). One line: *"GlucoTwin is a digital twin for type-2 diabetes that sees glucose spikes coming up to two hours ahead, explains why, and lets doctors test what would prevent them."* |
+| 0:00 | 1 Title | Introduce Team Gym Bro (IIIT Delhi). One line: *"ThaliTwin is a digital twin for type-2 diabetes that sees glucose spikes coming up to two hours ahead, explains why, and lets doctors test what would prevent them."* Explain the name: a *thali* is the everyday Indian plate, where most post-meal spikes begin; ThaliTwin knows what is on the plate and simulates what it will do. |
 | 0:45 | 2 Problem | 101 M adults with diabetes, 136 M with prediabetes (ICMR-INDIAB 2023). Care is built on HbA1c about 4 times a year, while a CGM gives 288 readings a day. Post-meal spikes are common with Indian diets and are invisible until much later. State the challenge question on the slide. |
 | 2:00 | 3 Use case | Predict, explain, act. Users are care teams running remote monitoring. Stress that it is decision support only, never automated dosing. |
 
@@ -44,7 +44,7 @@ Every number below comes from `docs/results.md`. If you re-run the pipeline, re-
 1. **Ward overview (14:00).** "Thirty monitored patients ranked by risk." Point out the KPI tiles, the spike-risk bars and the *main driver* column. Pick the top amber patient and click **Open twin →**.
 2. **Patient twin (15:00).**
    - Read the alert banner and its reasons.
-   - Explain the chart: blue is CGM, orange is the GlucoTwin forecast with its 80% band, the dashed line is the twin's physiology-only simulation. Point out meal markers (🍽 carbs logged), medicine markers (red × = missed dose), the spike-risk strip, steps, and heart rate with HRV and the asleep band.
+   - Explain the chart: blue is CGM, orange is the ThaliTwin forecast with its 80% band, the dashed line is the twin's physiology-only simulation. Point out meal markers (🍽 carbs logged), medicine markers (red × = missed dose), the spike-risk strip, steps, and heart rate with HRV and the asleep band.
    - Right side: the *Why this prediction* bars and the twin's learned insulin sensitivity across days.
    - Scroll down: EHR with ICD-10 chips, medicines, genetics, LOINC labs, the HbA1c trend, the 7-day glucose profile and time in ranges.
 3. **Live replay (17:00).** Toggle **▶ Live replay** in the sidebar and let the clock advance about an hour. Show the risk and forecast updating as new CGM readings arrive. Toggle it off.

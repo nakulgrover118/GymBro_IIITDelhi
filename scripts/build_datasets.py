@@ -8,8 +8,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from glucotwin import config as C  # noqa: E402
-from glucotwin.pipeline import build_shanghai, build_synthetic  # noqa: E402
+from thalitwin import config as C  # noqa: E402
+from thalitwin.pipeline import build_shanghai, build_synthetic  # noqa: E402
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()

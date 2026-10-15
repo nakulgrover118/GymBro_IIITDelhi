@@ -5,8 +5,8 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from common import AMBER, BLUE, GREY, RED, TEAL, card, select_patient, setup
-from glucotwin.data.meals import MEAL_BY_KEY, MEALS, absorption_rate
-from glucotwin.inference import meal_scenario, sleep_scale
+from thalitwin.data.meals import MEAL_BY_KEY, MEALS, absorption_rate
+from thalitwin.inference import meal_scenario, sleep_scale
 
 svc = setup("What-if")
 minute = st.session_state.minute

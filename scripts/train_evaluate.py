@@ -9,8 +9,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from glucotwin import config as C  # noqa: E402
-from glucotwin.models.experiment import run  # noqa: E402
+from thalitwin import config as C  # noqa: E402
+from thalitwin.models.experiment import run  # noqa: E402
 
 print = functools.partial(print, flush=True)  # noqa: A001
 

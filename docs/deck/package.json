@@ -1,7 +1,7 @@
 {
-  "name": "glucotwin-deck",
+  "name": "thalitwin-deck",
   "private": true,
-  "description": "Builds docs/GlucoTwin_Presentation.pptx from artifacts/results/summary.json and docs/figures",
+  "description": "Builds docs/ThaliTwin_Presentation.pptx from artifacts/results/summary.json and docs/figures",
   "scripts": { "build": "node build_deck.js" },
   "dependencies": {
     "pptxgenjs": "3.12.0",

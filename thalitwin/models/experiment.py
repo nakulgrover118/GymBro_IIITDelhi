@@ -19,12 +19,12 @@ import numpy as np
 import pandas as pd
 import shap
 
-from glucotwin import config as C
-from glucotwin.features import EHR_FEATURES, TWIN_FEATURES
-from glucotwin.models.gbm import FEATURE_SETS, STREAM_OF, columns_for, fit_classifier, fit_regressor, predict_proba
-from glucotwin.models.metrics import classification_report, event_report, pick_threshold, regression_report
+from thalitwin import config as C
+from thalitwin.features import EHR_FEATURES, TWIN_FEATURES
+from thalitwin.models.gbm import FEATURE_SETS, STREAM_OF, columns_for, fit_classifier, fit_regressor, predict_proba
+from thalitwin.models.metrics import classification_report, event_report, pick_threshold, regression_report
 
-FINAL = "GlucoTwin (fusion + digital twin)"
+FINAL = "ThaliTwin (fusion + digital twin)"
 GRU_NAME = "Deep learning: GRU fusion (sequence + EHR + twin)"
 TARGET_SENS = 0.80
 BASELINES = {"Trend rule (glucose + 2x 30-min change)": lambda d: d.cgm_now + 2 * d.d30,
@@ -80,7 +80,7 @@ def fit_predict(tr, va, te, step, use_gru, say, train_stride=1):
         say(f"trained {name} ({len(cols)} features)")
     if use_gru:
         try:
-            from glucotwin.models.gru import SEQ_CANDIDATES, SequenceData, predict, train_gru
+            from thalitwin.models.gru import SEQ_CANDIDATES, SequenceData, predict, train_gru
             seq_cols = [c for c in SEQ_CANDIDATES if c in te.columns]
             st_cols = [c for c in EHR_FEATURES + TWIN_FEATURES if c in te.columns]
             dtr = SequenceData(tr, seq_cols, st_cols, step)

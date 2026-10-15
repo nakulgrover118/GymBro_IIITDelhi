@@ -1,4 +1,4 @@
-"""GlucoTwin doctor dashboard.
+"""ThaliTwin doctor dashboard.
 
 Run:  streamlit run dashboard/app.py
 """
@@ -10,7 +10,7 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-st.set_page_config(page_title="GlucoTwin – Diabetes Digital Twin", page_icon="🩺", layout="wide")
+st.set_page_config(page_title="ThaliTwin – Diabetes Digital Twin", page_icon="🩺", layout="wide")
 
 pages = [
     st.Page("views/ward.py", title="Ward overview", icon="🏥", default=True),

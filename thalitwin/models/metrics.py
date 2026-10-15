@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import average_precision_score, roc_auc_score
 
-from glucotwin.config import ALERT_WINDOW_MIN
+from thalitwin.config import ALERT_WINDOW_MIN
 
 
 def rmse(y, p):

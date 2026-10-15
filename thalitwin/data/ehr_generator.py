@@ -203,7 +203,7 @@ def to_fhir_bundle(r: dict, obs_date: date) -> dict:
     pid = r["patient_id"]
     entries = [{"resource": {
         "resourceType": "Patient", "id": pid,
-        "meta": {"tag": [{"system": "urn:glucotwin", "code": "synthetic"}]},
+        "meta": {"tag": [{"system": "urn:thalitwin", "code": "synthetic"}]},
         "name": [{"text": r["name"]}], "gender": "male" if r["sex"] == "M" else "female",
         "birthDate": str(obs_date.year - r["age"]),
         "address": [{"city": r["city"], "country": "IN"}],

@@ -1,4 +1,4 @@
-# Model card: GlucoTwin spike predictor and glucose forecaster
+# Model card: ThaliTwin spike predictor and glucose forecaster
 
 ## Overview
 | | |

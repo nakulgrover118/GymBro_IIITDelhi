@@ -9,7 +9,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from glucotwin.config import ALERT_WINDOW_MIN, HORIZONS, SPIKE_MGDL
+from thalitwin.config import ALERT_WINDOW_MIN, HORIZONS, SPIKE_MGDL
 
 EHR_FEATURES = ["age", "sex_m", "bmi", "waist_cm", "hba1c", "fpg", "fasting_insulin", "homa_ir",
                 "diabetes_duration_y", "egfr", "triglycerides", "hdl", "ldl", "sbp", "hypertension",

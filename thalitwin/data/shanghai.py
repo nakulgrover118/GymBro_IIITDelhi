@@ -21,9 +21,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from glucotwin.config import SHANGHAI_DIR
-from glucotwin.data.meals import absorption_rate
-from glucotwin.twin.engine import slot_of
+from thalitwin.config import SHANGHAI_DIR
+from thalitwin.data.meals import absorption_rate
+from thalitwin.twin.engine import slot_of
 
 # keyword -> (carbs per 100 g, glycaemic index). First match wins, so order matters.
 FOOD_TABLE = [

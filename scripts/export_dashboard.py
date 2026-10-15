@@ -8,8 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import pandas as pd  # noqa: E402
 
-from glucotwin import config as C  # noqa: E402
-from glucotwin.features import LOG_FEATURES, TWIN_FEATURES, WEAR_FEATURES  # noqa: E402
+from thalitwin import config as C  # noqa: E402
+from thalitwin.features import LOG_FEATURES, TWIN_FEATURES, WEAR_FEATURES  # noqa: E402
 
 if __name__ == "__main__":
     out = C.ARTIFACTS_DIR / "dashboard"

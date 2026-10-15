@@ -10,14 +10,14 @@ import time
 import numpy as np
 import pandas as pd
 
-from glucotwin import config as C
-from glucotwin.data.ehr_generator import generate_cohort, lab_history, write_fhir
-from glucotwin.data.simulator import START_DATE, simulate_cohort
-from glucotwin.features import add_twin_deltas, ehr_static, patient_features
-from glucotwin.twin.engine import calibrate, forecast_grid, run_observer
-from glucotwin.twin.inputs import Observed, build_observed, stack_inputs
-from glucotwin.twin.physiology import params_from_clinical
-from glucotwin.twin.inputs import sleep_by_day  # noqa: F401  (re-exported for scripts)
+from thalitwin import config as C
+from thalitwin.data.ehr_generator import generate_cohort, lab_history, write_fhir
+from thalitwin.data.simulator import START_DATE, simulate_cohort
+from thalitwin.features import add_twin_deltas, ehr_static, patient_features
+from thalitwin.twin.engine import calibrate, forecast_grid, run_observer
+from thalitwin.twin.inputs import Observed, build_observed, stack_inputs
+from thalitwin.twin.physiology import params_from_clinical
+from thalitwin.twin.inputs import sleep_by_day  # noqa: F401  (re-exported for scripts)
 
 
 def _log(msg, t0):
@@ -108,7 +108,7 @@ def build_synthetic(n_patients=C.N_PATIENTS, n_days=C.N_DAYS, seed=C.SEED):
 
 
 def build_shanghai(step=15, seed=C.SEED):
-    from glucotwin.data.shanghai import load_all
+    from thalitwin.data.shanghai import load_all
     t0 = time.time()
     summ, recs = load_all(step=step)
     _log(f"loaded ShanghaiT2DM: {len(recs)} recordings / {summ.person.nunique()} people", t0)
@@ -119,7 +119,7 @@ def build_shanghai(step=15, seed=C.SEED):
         T = int(np.ceil(T / 1440) * 1440)
         cgm = np.full(T, np.nan)
         cgm[grid.minute.values] = grid.cgm.values
-        from glucotwin.twin.physiology import insulin_appearance, meal_appearance
+        from thalitwin.twin.physiology import insulin_appearance, meal_appearance
         Ra = meal_appearance(T, meals.minute, meals.carbs, meals.k)
         Ri = insulin_appearance(T, ins.minute, ins.dose, ins.ka.values) if len(ins) else np.zeros(T)
         prior = params_from_clinical(r["fpg"], r["fasting_insulin"], r["weight_kg"], r["hba1c"],
