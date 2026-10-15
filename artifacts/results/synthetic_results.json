@@ -1,0 +1,37 @@
+{
+ "cohort": "synthetic",
+ "step_min": 5,
+ "target_sensitivity": 0.8,
+ "evaluation": "held-out test patients (patient-level split)",
+ "patients": {
+  "train": 140,
+  "val": 30,
+  "test": 30
+ },
+ "rows_evaluated": 103680,
+ "conformal": {
+  "30": {
+   "q80": 9.909634411902244,
+   "q95": 16.1910521518969,
+   "test_coverage_80": 0.8012911505629339
+  },
+  "60": {
+   "q80": 14.2445018035187,
+   "q95": 28.988761235758023,
+   "test_coverage_80": 0.8014718066182562
+  },
+  "120": {
+   "q80": 22.095072846377008,
+   "q95": 50.301120384130684,
+   "test_coverage_80": 0.8049374504836706
+  }
+ },
+ "stream_importance": {
+  "Digital twin": 0.575,
+  "CGM": 0.1591,
+  "Wearables": 0.1509,
+  "Meal & medicine logs": 0.059,
+  "EHR": 0.0561
+ },
+ "final_threshold": 0.43716741366795864
+}

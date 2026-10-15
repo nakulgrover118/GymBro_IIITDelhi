@@ -1,0 +1,582 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "id": "bundle-GT-0126",
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "GT-0126",
+    "meta": {
+     "tag": [
+      {
+       "system": "urn:glucotwin",
+       "code": "synthetic"
+      }
+     ]
+    },
+    "name": [
+     {
+      "text": "Padma Krishnan"
+     }
+    ],
+    "gender": "female",
+    "birthDate": "1981",
+    "address": [
+     {
+      "city": "Kochi",
+      "country": "IN"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E11.9",
+       "display": "Type 2 diabetes mellitus"
+      }
+     ]
+    },
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E78.5",
+       "display": "Hyperlipidaemia, unspecified"
+      }
+     ]
+    },
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E66.9",
+       "display": "Obesity, unspecified"
+      }
+     ]
+    },
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K76.0",
+       "display": "Fatty (change of) liver, not elsewhere classified"
+      }
+     ]
+    },
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "4548-4",
+       "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 8.7,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "1558-6",
+       "display": "Fasting glucose [Mass/volume] in Serum or Plasma"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 159,
+     "unit": "mg/dL"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "20448-7",
+       "display": "Insulin [Units/volume] in Serum or Plasma"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 9.5,
+     "unit": "uU/mL"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "2093-3",
+       "display": "Cholesterol [Mass/volume] in Serum or Plasma"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 201,
+     "unit": "mg/dL"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "13457-7",
+       "display": "LDL Cholesterol (calculated)"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 127,
+     "unit": "mg/dL"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "2085-9",
+       "display": "HDL Cholesterol [Mass/volume] in Serum or Plasma"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 41,
+     "unit": "mg/dL"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "2571-8",
+       "display": "Triglyceride [Mass/volume] in Serum or Plasma"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 171,
+     "unit": "mg/dL"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "2160-0",
+       "display": "Creatinine [Mass/volume] in Serum or Plasma"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 0.83,
+     "unit": "mg/dL"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "62238-1",
+       "display": "eGFR (CKD-EPI)"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 86,
+     "unit": "mL/min/1.73m2"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "1742-6",
+       "display": "Alanine aminotransferase [Enzymatic activity/volume]"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 79,
+     "unit": "U/L"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "9318-7",
+       "display": "Albumin/Creatinine [Mass Ratio] in Urine"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 23.2,
+     "unit": "mg/g"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "39156-5",
+       "display": "Body mass index (BMI)"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 31.3,
+     "unit": "kg/m2"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "29463-7",
+       "display": "Body weight"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 69.5,
+     "unit": "kg"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "8302-2",
+       "display": "Body height"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 148.9,
+     "unit": "cm"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "8280-0",
+       "display": "Waist circumference"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 94.5,
+     "unit": "cm"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "8480-6",
+       "display": "Systolic blood pressure"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 114,
+     "unit": "mm[Hg]"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "effectiveDateTime": "2026-09-01",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "8462-4",
+       "display": "Diastolic blood pressure"
+      }
+     ]
+    },
+    "valueQuantity": {
+     "value": 74,
+     "unit": "mm[Hg]"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "code": {
+     "text": "Genotype TCF7L2 rs7903146 (risk allele count)"
+    },
+    "valueInteger": 0
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg BD"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "medicationCodeableConcept": {
+     "text": "Glimepiride 2 mg OD"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "medicationCodeableConcept": {
+     "text": "Teneligliptin 20 mg OD"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "subject": {
+     "reference": "Patient/GT-0126"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg OD"
+    }
+   }
+  }
+ ]
+}

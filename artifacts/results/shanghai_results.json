@@ -1,0 +1,35 @@
+{
+ "cohort": "shanghai",
+ "step_min": 15,
+ "target_sensitivity": 0.8,
+ "evaluation": "5-fold cross-validation grouped by person (out-of-fold pooled)",
+ "patients": {
+  "total_recordings": 109,
+  "people": 100
+ },
+ "rows_evaluated": 113472,
+ "conformal": {
+  "30": {
+   "q80": 14.082687031376874,
+   "q95": 26.76489454259172,
+   "test_coverage_80": 0.8043771200223038
+  },
+  "60": {
+   "q80": 24.872127881550327,
+   "q95": 46.74934944026901,
+   "test_coverage_80": 0.8052371329863018
+  },
+  "120": {
+   "q80": 35.48296670519596,
+   "q95": 65.22065342364081,
+   "test_coverage_80": 0.7962711896101953
+  }
+ },
+ "stream_importance": {
+  "CGM": 0.4662,
+  "Digital twin": 0.3687,
+  "EHR": 0.1042,
+  "Meal & medicine logs": 0.0609
+ },
+ "final_threshold": 0.19457892377772693
+}

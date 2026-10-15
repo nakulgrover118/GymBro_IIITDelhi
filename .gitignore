@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.scratch/
+.pytest_cache/
+.ipynb_checkpoints/
+data/raw/shanghai/extracted/
+*.zip
+data/processed/features_*.parquet
+.DS_Store
+
+docs/deck/node_modules/
+.claude/

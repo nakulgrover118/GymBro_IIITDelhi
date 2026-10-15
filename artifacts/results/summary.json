@@ -1,0 +1,241 @@
+{
+ "synthetic": {
+  "evaluation": "held-out test patients (patient-level split)",
+  "patients": {
+   "train": 140,
+   "val": 30,
+   "test": 30
+  },
+  "rows": 103680,
+  "auroc": 0.956750834644424,
+  "auprc": 0.9157551993340888,
+  "prevalence": 0.3258857090273304,
+  "sensitivity": 0.8398373524594793,
+  "specificity": 0.9081030905318336,
+  "ppv": 0.8154301694357624,
+  "event_recall": 0.9875621890547264,
+  "median_lead": 110.0,
+  "false_per_day": 2.702777777777778,
+  "alerts_per_day": 6.583333333333333,
+  "events": 804,
+  "events_per_day": 2.2333333333333334,
+  "quiet_mode": {
+   "event_recall": 0.8544776119402985,
+   "median_lead_min": 70.0,
+   "false_alerts_per_day": 0.9916666666666668
+  },
+  "rmse": {
+   "30": 8.368545260242762,
+   "60": 13.904291787464553,
+   "120": 21.89252058135729
+  },
+  "rmse_persistence": {
+   "30": 15.99195380743186,
+   "60": 26.96116232819778,
+   "120": 39.814656449862056
+  },
+  "rmse_twin": {
+   "30": 10.729491414219495,
+   "60": 17.487360121569612,
+   "120": 25.64161308873905
+  },
+  "mard60": 5.607699546378494,
+  "clarkeA60": 96.74643013792095,
+  "clarkeAB60": 99.7923875432526,
+  "coverage80": {
+   "30": 0.8012911505629339,
+   "60": 0.8014718066182562,
+   "120": 0.8049374504836706
+  },
+  "ablation": [
+   [
+    "Trend rule (glucose + 2x 30-min change)",
+    0.7061837635260375
+   ],
+   [
+    "Digital twin alone (simulated peak)",
+    0.9188537474257524
+   ],
+   [
+    "LightGBM: CGM only",
+    0.9312015492879836
+   ],
+   [
+    "LightGBM: CGM + EHR",
+    0.9336667528580744
+   ],
+   [
+    "LightGBM: CGM + wearables & logs",
+    0.9530929986375792
+   ],
+   [
+    "LightGBM: Fusion (CGM + EHR + wearables & logs)",
+    0.9535599845726302
+   ],
+   [
+    "LightGBM: GlucoTwin (fusion + digital twin)",
+    0.956750834644424
+   ],
+   [
+    "Deep learning: GRU fusion (sequence + EHR + twin)",
+    0.94306571185557
+   ]
+  ],
+  "streams": {
+   "Digital twin": 0.575,
+   "CGM": 0.1591,
+   "Wearables": 0.1509,
+   "Meal & medicine logs": 0.059,
+   "EHR": 0.0561
+  }
+ },
+ "shanghai": {
+  "evaluation": "5-fold cross-validation grouped by person (out-of-fold pooled)",
+  "patients": {
+   "total_recordings": 109,
+   "people": 100
+  },
+  "rows": 113472,
+  "auroc": 0.8780013700338051,
+  "auprc": 0.6010374148273575,
+  "prevalence": 0.1527949740908882,
+  "sensitivity": 0.7951680672268907,
+  "specificity": 0.7996211096075778,
+  "ppv": 0.4171455561678344,
+  "event_recall": 0.9895776193088316,
+  "median_lead": 120.0,
+  "false_per_day": 4.383248730964467,
+  "alerts_per_day": 6.99746192893401,
+  "events": 1823,
+  "events_per_day": 1.5423011844331642,
+  "quiet_mode": {
+   "event_recall": 0.8414701042238069,
+   "median_lead_min": 45.0,
+   "false_alerts_per_day": 0.9357021996615904
+  },
+  "rmse": {
+   "30": 12.598726556752885,
+   "60": 22.16354003631789,
+   "120": 31.577190073170083
+  },
+  "rmse_persistence": {
+   "30": 17.557090952543206,
+   "60": 29.36004922430767,
+   "120": 43.92677281945005
+  },
+  "rmse_twin": {
+   "30": 16.812364019574616,
+   "60": 27.923251638382787,
+   "120": 39.49120719676904
+  },
+  "mard60": 11.492468401914582,
+  "clarkeA60": 83.8630374253867,
+  "clarkeAB60": 98.69630402190212,
+  "coverage80": {
+   "30": 0.8043771200223038,
+   "60": 0.8052371329863018,
+   "120": 0.7962711896101953
+  },
+  "ablation": [
+   [
+    "Trend rule (glucose + 2x 30-min change)",
+    0.7480923473749563
+   ],
+   [
+    "Digital twin alone (simulated peak)",
+    0.8130483328311027
+   ],
+   [
+    "LightGBM: CGM only",
+    0.8781883668555379
+   ],
+   [
+    "LightGBM: CGM + EHR",
+    0.8720831285829622
+   ],
+   [
+    "LightGBM: CGM + meal & insulin logs",
+    0.8840268404384758
+   ],
+   [
+    "LightGBM: Fusion (CGM + EHR + meal & insulin logs)",
+    0.8817210747627873
+   ],
+   [
+    "LightGBM: GlucoTwin (fusion + digital twin)",
+    0.8780013700338051
+   ],
+   [
+    "Deep learning: GRU fusion (sequence + EHR + twin)",
+    0.8412255868040899
+   ]
+  ],
+  "streams": {
+   "CGM": 0.4662,
+   "Digital twin": 0.3687,
+   "EHR": 0.1042,
+   "Meal & medicine logs": 0.0609
+  }
+ },
+ "example_alert": {
+  "patient": "GT-0001",
+  "time": "Sat 05 Sep, 13:55",
+  "glucose": 119.0,
+  "prob": 0.9892691081646975,
+  "forecast_2h": 212.19130491497765,
+  "reasons": [
+   {
+    "text": "twin simulates a peak of 221 mg/dL",
+    "direction": "raises risk"
+   },
+   {
+    "text": "115 g carbs in the last 2 h",
+    "direction": "raises risk"
+   },
+   {
+    "text": "twin learned low insulin sensitivity (x0.89)",
+    "direction": "raises risk"
+   },
+   {
+    "text": "425 min since waking (usual meal times)",
+    "direction": "raises risk"
+   }
+  ]
+ },
+ "whatif": {
+  "patient": "GT-0001",
+  "scenarios": [
+   {
+    "scenario": "Rice + dal + sabzi (usual lunch)",
+    "peak": 206,
+    "minutes_above_180": 96
+   },
+   {
+    "scenario": "+ 15-min walk after eating",
+    "peak": 192,
+    "minutes_above_180": 68
+   },
+   {
+    "scenario": "Half portion",
+    "peak": 164,
+    "minutes_above_180": 0
+   },
+   {
+    "scenario": "Swap to millet roti + dal + salad",
+    "peak": 161,
+    "minutes_above_180": 0
+   },
+   {
+    "scenario": "Usual lunch after a 4.5-h night",
+    "peak": 210,
+    "minutes_above_180": 108
+   }
+  ]
+ },
+ "twin_learning": {
+  "si_corr_day0": 0.7980735135347069,
+  "si_corr_last": 0.875925006237979,
+  "si_err_day0": 19.00616247057499,
+  "si_err_last": 17.0851058195124
+ }
+}
