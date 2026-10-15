@@ -1,0 +1,9 @@
+# Minimal dependencies for the hosted dashboard (Streamlit Community Cloud reads this file
+# because it sits next to the entrypoint, dashboard/app.py). The full pipeline uses ../requirements.txt.
+streamlit>=1.40
+pandas>=2.2
+numpy>=2.0
+pyarrow>=16
+plotly>=5.20
+lightgbm>=4.5
+scikit-learn>=1.5
